@@ -37,7 +37,7 @@ body{
 
     border:2px solid #5a5a5a;
 
-    border-radius:12px;
+    border-radius:0px;
 
     padding:30px;
 
@@ -91,7 +91,7 @@ h2{
 
     border:none;
 
-    border-radius:8px;
+    border-radius:0px;
 
     cursor:pointer;
 
@@ -157,7 +157,7 @@ input{
 
     border:1px solid #666;
 
-    border-radius:6px;
+    border-radius:0px;
 
 }
 
@@ -177,7 +177,7 @@ select{
 
     border:1px solid #666;
 
-    border-radius:6px;
+    border-radius:0px;
 
 }
 
@@ -215,7 +215,7 @@ button{
 
     border:none;
 
-    border-radius:8px;
+    border-radius:0px;
 
     cursor:pointer;
 
@@ -241,7 +241,7 @@ button:hover{
 
     border:2px solid #5b5b5b;
 
-    border-radius:8px;
+    border-radius:0px;
 
     text-align:center;
 
