@@ -2,47 +2,205 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <title>Death of the Innocent</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Death of the Innocent Companion</title>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-<div class="box">
+<div class="container">
 
-<h1>Damage Calculator</h1>
+    <h1>Death of the Innocent Companion</h1>
 
-<label>Base Damage</label>
-<input id="damage" type="number" value="70">
+    <div class="tabs">
 
-<label>Modifier</label>
+        <button class="tabButton active" onclick="showTab('damage')">
+            Damage
+        </button>
 
-<select id="modifier">
-    <option value="1">None</option>
-    <option value="1.3">Rev 1</option>
-    <option value="1.4">Rev 2</option>
-    <option value="1.7">Critical</option>
-</select>
+        <button class="tabButton" onclick="showTab('weapon')">
+            Weapon
+        </button>
 
-<label>Resistance</label>
+        <button class="tabButton" onclick="showTab('spell')">
+            Spell
+        </button>
 
-<select id="resistance">
+    </div>
 
-<option value="0">0%</option>
-<option value="10">10%</option>
-<option value="15">15%</option>
-<option value="20">20%</option>
+    <!-- DAMAGE -->
 
-</select>
+    <div id="damage" class="tabContent">
 
-<button onclick="calculateDamage()">
-Calculate
-</button>
+        <h2>Damage Calculator</h2>
 
-<h2 id="result">
-Final Damage:
-</h2>
+        <label>Base Damage</label>
+        <input id="damageBase" type="number" placeholder="0">
+
+        <label>Modifier</label>
+
+        <select id="damageModifier">
+
+            <option value="1">None</option>
+            <option value="1.3">Rev 1</option>
+            <option value="1.4">Rev 2</option>
+            <option value="1.7">Critical</option>
+
+        </select>
+
+        <div class="doubleInput">
+
+            <div>
+
+                <label>Resistance</label>
+
+                <select id="damageResistance">
+
+                    <option value="0">0%</option>
+                    <option value="10">10%</option>
+                    <option value="15">15%</option>
+                    <option value="20">20%</option>
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>Weakness</label>
+
+                <select id="damageWeakness">
+
+                    <option value="0">0%</option>
+                    <option value="10">10%</option>
+                    <option value="15">15%</option>
+                    <option value="20">20%</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <button onclick="calculateDamage()">
+            Calculate
+        </button>
+
+        <div class="result">
+
+            Final Damage
+
+            <span id="damageResult">
+                0
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- WEAPON -->
+
+    <div id="weapon" class="tabContent hidden">
+
+        <h2>Weapon Calculator</h2>
+
+        <label>Base Attack</label>
+        <input id="weaponBaseAttack" type="number" placeholder="0">
+
+        <label>Weapon</label>
+
+        <select id="weaponSelect">
+
+            <option value="Rusty Pipe">Rusty Pipe</option>
+			<option value="Black Steel">Black Steel</option>
+
+        </select>
+
+        <label>Skill</label>
+
+        <select id="weaponSkill">
+
+            <option value="None">None</option>
+			<option value="Adrenalinrush 1">Adrenalinrush 1</option>
+			<option value="Adrenalinrush 2">Adrenalinrush 2</option>
+
+        </select>
+
+        <button onclick="calculateWeapon()">
+            Calculate
+        </button>
+
+        <div class="result">
+
+            Weapon Damage
+
+            <span id="weaponResult">
+                0
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- SPELL -->
+
+    <div id="spell" class="tabContent hidden">
+
+        <h2>Spell Calculator</h2>
+
+        <label>Base Magic Attack</label>
+        <input id="spellBaseAttack" type="number" placeholder="0">
+
+        <label>Spell</label>
+
+        <select id="spellSelect">
+
+            <option value="Hurting">Hurting</option>
+			<option value="Combustion">Combustion</option>
+
+        </select>
+
+        <label>Accessory</label>
+
+        <select id="spellAccessory">
+
+            <option value="None">None</option>
+			<option value="Chac Chac">Chac Chac</option>
+			<option value="Molded Doll">Molded Doll</option>	
+
+        </select>
+
+        <label>Skill</label>
+
+        <select id="spellSkill">
+
+            <option value="None">None</option>
+			<option value="La Danse Macabre 1">La Danse Macabre 1</option>
+			<option value="La Danse Macabre 2">La Danse Macabre 2</option>
+
+        </select>
+
+        <button onclick="calculateSpell()">
+            Calculate
+        </button>
+
+        <div class="result">
+
+            Spell Damage
+
+            <span id="spellResult">
+                0
+            </span>
+
+        </div>
+
+    </div>
 
 </div>
 

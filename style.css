@@ -1,65 +1,294 @@
+/* =======================================
+   Death of the Innocent Companion
+   Style.css
+======================================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
 body{
 
-background:#171717;
-color:white;
+    background:#151515;
 
-font-family:Georgia;
+    color:#eeeeee;
 
-display:flex;
-justify-content:center;
+    font-family:Georgia, serif;
 
-margin-top:80px;
+    display:flex;
 
-}
+    justify-content:center;
 
-.box{
-
-width:350px;
-
-background:#252525;
-
-padding:25px;
-
-border:2px solid #555;
+    padding:40px;
 
 }
 
-label{
+/* ========================= */
 
-display:block;
+.container{
 
-margin-top:20px;
+    width:100%;
+
+    max-width:650px;
+
+    background:#242424;
+
+    border:2px solid #5a5a5a;
+
+    border-radius:12px;
+
+    padding:30px;
+
+    box-shadow:0px 0px 25px rgba(0,0,0,.5);
 
 }
 
-input,select{
+/* ========================= */
 
-width:100%;
+h1{
 
-font-size:20px;
+    text-align:center;
 
-padding:6px;
+    color:#d2b46d;
 
-margin-top:5px;
-
-}
-
-button{
-
-margin-top:25px;
-
-width:100%;
-
-padding:12px;
-
-font-size:20px;
-
-cursor:pointer;
+    margin-bottom:25px;
 
 }
 
 h2{
 
-margin-top:35px;
+    text-align:center;
+
+    margin-bottom:20px;
+
+    color:#cfcfcf;
+
+}
+
+/* ========================= */
+
+.tabs{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-bottom:25px;
+
+}
+
+.tabButton{
+
+    flex:1;
+
+    padding:14px;
+
+    background:#353535;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.2s;
+
+}
+
+.tabButton:hover{
+
+    background:#505050;
+
+}
+
+.tabButton.active{
+
+    background:#8b1e1e;
+
+}
+
+/* ========================= */
+
+.tabContent{
+
+    display:block;
+
+}
+
+.hidden{
+
+    display:none;
+
+}
+
+/* ========================= */
+
+label{
+
+    display:block;
+
+    margin-top:18px;
+
+    margin-bottom:6px;
+
+    font-weight:bold;
+
+}
+
+/* ========================= */
+
+input{
+
+    width:100%;
+
+    padding:10px;
+
+    font-size:18px;
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border:1px solid #666;
+
+    border-radius:6px;
+
+}
+
+/* ========================= */
+
+select{
+
+    width:100%;
+
+    padding:10px;
+
+    font-size:18px;
+
+    background:#1d1d1d;
+
+    color:white;
+
+    border:1px solid #666;
+
+    border-radius:6px;
+
+}
+
+/* ========================= */
+
+.doubleInput{
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.doubleInput div{
+
+    flex:1;
+
+}
+
+/* ========================= */
+
+button{
+
+    width:100%;
+
+    margin-top:25px;
+
+    padding:14px;
+
+    font-size:18px;
+
+    background:#8b1e1e;
+
+    color:white;
+
+    border:none;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+}
+
+button:hover{
+
+    background:#b52d2d;
+
+}
+
+/* ========================= */
+
+.result{
+
+    margin-top:30px;
+
+    padding:20px;
+
+    background:#1d1d1d;
+
+    border:2px solid #5b5b5b;
+
+    border-radius:8px;
+
+    text-align:center;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+}
+
+.result span{
+
+    display:block;
+
+    margin-top:12px;
+
+    font-size:34px;
+
+    color:#d2b46d;
+
+}
+
+/* ========================= */
+
+@media(max-width:700px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+    .container{
+
+        padding:20px;
+
+    }
+
+    .tabs{
+
+        flex-direction:column;
+
+    }
+
+    .doubleInput{
+
+        flex-direction:column;
+
+    }
 
 }
