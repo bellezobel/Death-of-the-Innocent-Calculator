@@ -73,11 +73,11 @@ function applyModifiers(
 const weapons = {
 
     "Rusty Pipe": {
-        attack:15
+        attack:5
     },
 
     "Black Steel": {
-        attack:30
+        attack:15
     }
 
 };
@@ -90,11 +90,11 @@ const weaponSkills = {
         multiplier:1
     },
 
-    "Adrenalinrush 1":{
+    "Adrenalinrush I":{
         multiplier:1.5
     },
 
-    "Adrenalinrush 2":{
+    "Adrenalinrush II":{
         multiplier:2
     }
 
@@ -213,11 +213,11 @@ const spellSkills = {
         multiplier:1
     },
 
-    "La Danse Macabre 1":{
+    "La Danse Macabre I":{
         multiplier:1.5
     },
 
-    "La Danse Macabre 2":{
+    "La Danse Macabre II":{
         multiplier:2
     }
 
@@ -231,7 +231,7 @@ const spells = {
 
         formula:function(mAttack){
 
-            return 40 + (mAttack * 2);
+            return 25 + (mAttack * 2);
 
         }
 
@@ -242,7 +242,7 @@ const spells = {
 
         formula:function(mAttack){
 
-            return mAttack * 2;
+            return mAttack * 4;
 
         }
 
