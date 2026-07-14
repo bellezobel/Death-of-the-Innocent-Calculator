@@ -1,0 +1,25 @@
+{
+  "name": "Death of Innocence Companion",
+  "short_name": "DOIC Calc",
+  "description": "Damage Calculator for Death of Innocence TTRGP",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#161312",
+  "theme_color": "#3b241b",
+  "icons": [
+    {
+      "src": "icon-small.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-big.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
