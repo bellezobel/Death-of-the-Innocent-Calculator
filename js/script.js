@@ -698,60 +698,87 @@ function calculateSpell(){
 ====================================== */
 
 
-function coinFlip(){
+function coinFlip(amount){
+
+
+    let coins = [];
+
+
+    coins.push(
+        document.getElementById("coinResult1")
+    );
+
+
+    let secondCoin =
+        document.getElementById("coinResult2");
 
 
 
-    const coinImage =
-        document.getElementById("coinResult");
+    if(amount === 2){
 
+        secondCoin.classList.remove("hiddenCoin");
 
-
-    const heads =
-        Math.random() < 0.5;
-
-
-
-
-    if(heads){
-
-
-        coinImage.src =
-        "images/coinfliphead.gif";
-
-
-
-        setTimeout(()=>{
-
-
-            coinImage.src =
-            "images/coinhead.gif";
-
-
-        },2900);
-
+        coins.push(secondCoin);
 
     }
-
     else{
 
+        secondCoin.classList.add("hiddenCoin");
 
-        coinImage.src =
-        "images/coinfliptail.gif";
-
-
-
-        setTimeout(()=>{
-
-
-            coinImage.src =
-            "images/cointail.gif";
-
-
-        },2900);
-
+        secondCoin.src = "images/coin.gif";
 
     }
+
+
+
+    coins.forEach((coin)=>{
+
+
+        const heads =
+            Math.random() < 0.5;
+
+
+
+        if(heads){
+
+
+            coin.src =
+            "images/coinfliphead.gif";
+
+
+            setTimeout(()=>{
+
+
+                coin.src =
+                "images/coinhead.gif";
+
+
+            },2900);
+
+
+        }
+
+        else{
+
+
+            coin.src =
+            "images/coinfliptail.gif";
+
+
+            setTimeout(()=>{
+
+
+                coin.src =
+                "images/cointail.gif";
+
+
+            },2900);
+
+
+        }
+
+
+    });
 
 
 }
