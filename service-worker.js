@@ -78,206 +78,62 @@ const FILES_TO_CACHE = [
 
 
 
-/* ======================================
-        INSTALL
-====================================== */
-
-
-self.addEventListener(
-"install",
-event => {
-
-
+// Installieren
+self.addEventListener("install", event => {
     event.waitUntil(
-
-        caches.open(CACHE_NAME)
-
-        .then(cache => {
-
-
-            return cache.addAll(FILES_TO_CACHE);
-
-
-        })
-
+        caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
     );
 
-
+    // Neuer Service Worker wird sofort aktiv
     self.skipWaiting();
-
-
 });
 
-
-
-
-
-
-
-/* ======================================
-        ACTIVATE
-====================================== */
-
-
-self.addEventListener(
-"activate",
-event => {
-
-
+// Aktivieren
+self.addEventListener("activate", event => {
     event.waitUntil(
-
-        caches.keys()
-
-        .then(cacheNames => {
-
-
-            return Promise.all(
-
-
+        caches.keys().then(cacheNames =>
+            Promise.all(
                 cacheNames.map(cacheName => {
-
-
-                    if(cacheName !== CACHE_NAME){
-
-
+                    if (cacheName !== CACHE_NAME) {
                         return caches.delete(cacheName);
-
-
                     }
-
-
                 })
-
-
-            );
-
-
-        })
-
+            )
+        )
     );
 
-
-
-    self.clients.claim();
-
-
+    // Alle geöffneten Tabs sofort übernehmen
+    event.waitUntil(self.clients.claim());
 });
 
-
-
-
-
-
-
-
-/* ======================================
-        FETCH
-====================================== */
-
-
-self.addEventListener(
-"fetch",
-event => {
-
-
-
-    if(event.request.method !== "GET"){
-
+// Dateien laden
+self.addEventListener("fetch", event => {
+    if (event.request.method !== "GET") {
         return;
-
     }
 
-
-
-
     event.respondWith(
+        caches.match(event.request).then(cachedResponse => {
 
-
-        caches.match(event.request)
-
-        .then(cachedResponse => {
-
-
-
-            const networkFetch =
-
-
-                fetch(event.request)
-
+            // Immer versuchen, die aktuelle Datei vom Server zu holen
+            const networkFetch = fetch(event.request)
                 .then(networkResponse => {
 
+                    if (networkResponse && networkResponse.status === 200) {
 
+                        const responseClone = networkResponse.clone();
 
-                    if(
-
-                        networkResponse
-
-                        &&
-
-                        networkResponse.status === 200
-
-                    ){
-
-
-
-                        const responseClone =
-
-                        networkResponse.clone();
-
-
-
-
-                        caches.open(CACHE_NAME)
-
-                        .then(cache => {
-
-
-                            cache.put(
-
-                                event.request,
-
-                                responseClone
-
-                            );
-
-
+                        caches.open(CACHE_NAME).then(cache => {
+                            cache.put(event.request, responseClone);
                         });
-
-
                     }
 
-
-
-
                     return networkResponse;
-
-
-
                 })
+                .catch(() => cachedResponse);
 
-
-
-                .catch(() => {
-
-
-                    return cachedResponse;
-
-
-                });
-
-
-
-
-
-
+            // Sofort Cache anzeigen, im Hintergrund aktualisieren
             return cachedResponse || networkFetch;
-
-
-
         })
-
-
     );
-
-
 });
