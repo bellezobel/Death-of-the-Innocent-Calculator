@@ -716,10 +716,61 @@ button:hover{
 
 }
 
+/* =========================
+        ITEM DISPLAY
+========================= */
 
 
+.itemDisplay{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:10px;
+
+    margin-bottom:20px;
+
+}
 
 
+.itemRight{
+
+    flex:1;
+
+}
+
+
+.itemRight select{
+
+    width:100%;
+
+}
+
+
+.weaponText{
+
+    margin-top:8px;
+
+
+.itemTop{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:10px;
+
+}
+
+
+.itemTop select{
+
+    flex:1;
+
+}
 
 
 
@@ -758,7 +809,7 @@ body{
 .tabs{
 
 
-    flex-direction:column;
+    flex-direction:row;
 
 
 }
@@ -769,7 +820,7 @@ body{
 .doubleInput{
 
 
-    flex-direction:column;
+    flex-direction:row;
 
 
 }

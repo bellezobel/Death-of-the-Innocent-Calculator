@@ -97,8 +97,6 @@ Spell
 
 
 
-
-
 <div class="itemDisplay">
 
     <img id="weaponImage"
@@ -106,22 +104,22 @@ Spell
     src="images/placeholder.png">
 
 
-    <div>
+    <div class="itemRight">
 
-        <strong id="weaponName">
-        </strong>
+        <select id="weaponSelect"></select>
 
-        <p id="weaponInfo">
-        </p>
+
+        <div class="weaponText">
+
+            <strong id="weaponName"></strong>
+
+            <p id="weaponInfo"></p>
+
+        </div>
 
     </div>
 
 </div>
-
-
-<select id="weaponSelect"></select>
-
-</select>
 
 
 
@@ -152,41 +150,55 @@ placeholder="0">
 
 
 
-<label>Rev</label>
+<div class="doubleInput">
 
-<select id="weaponRev">
+    <div>
 
-<option value="1">
-None
-</option>
+        <label>
+        Rev
+        </label>
 
-<option value="1.3">
-Rev 1
-</option>
+        <select id="spellRev">
 
-<option value="1.5">
-Rev 2
-</option>
+            <option value="1">
+            None
+            </option>
 
-</select>
+            <option value="1.2">
+            Rev 1
+            </option>
+
+            <option value="1.4">
+            Rev 2
+            </option>
+
+        </select>
+
+    </div>
 
 
 
+    <div>
 
+        <label>
+        Crit
+        </label>
 
-<label>Crit</label>
+        <select id="spellCrit">
 
-<select id="weaponCrit">
+            <option value="1">
+            None
+            </option>
 
-<option value="1">
-No
-</option>
+            <option value="1.7">
+            Critical
+            </option>
 
-<option value="2">
-Yes
-</option>
+        </select>
 
-</select>
+    </div>
+
+</div>
 
 
 
@@ -314,26 +326,28 @@ Spell Calculator
 
 <div class="itemDisplay">
 
-<img 
-id="spellImage"
-class="itemPreview"
-src="images/placeholder.png">
+    <img 
+    id="spellImage"
+    class="itemPreview"
+    src="images/placeholder.png">
 
 
-<div>
+    <div class="itemRight">
 
-<strong id="spellName"></strong>
+        <select id="spellSelect"></select>
 
-<p id="spellInfo"></p>
+
+        <div class="weaponText">
+
+            <strong id="spellName"></strong>
+
+            <p id="spellInfo"></p>
+
+        </div>
+
+    </div>
 
 </div>
-
-</div>
-
-
-<select id="spellSelect"></select>
-
-</select>
 
 
 
@@ -420,55 +434,55 @@ Skill
 
 
 
-<label>
-Rev
-</label>
+<div class="doubleInput">
 
+    <div>
 
-<select id="spellRev">
+        <label>
+        Rev
+        </label>
 
+        <select id="spellRev">
 
-<option value="1">
-None
-</option>
+            <option value="1">
+            None
+            </option>
 
+            <option value="1.2">
+            Rev 1
+            </option>
 
-<option value="1.2">
-Rev 1
-</option>
+            <option value="1.4">
+            Rev 2
+            </option>
 
+        </select>
 
-<option value="1.4">
-Rev 2
-</option>
-
-
-</select>
-
-
-
+    </div>
 
 
 
-<label>
-Crit
-</label>
+    <div>
 
+        <label>
+        Crit
+        </label>
 
-<select id="spellCrit">
+        <select id="spellCrit">
 
+            <option value="1">
+            None
+            </option>
 
-<option value="1">
-None
-</option>
+            <option value="1.7">
+            Critical
+            </option>
 
+        </select>
 
-<option value="1.7">
-Critical
-</option>
+    </div>
 
-
-</select>
+</div>
 
 
 
