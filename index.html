@@ -14,7 +14,7 @@
 
 <meta name="theme-color" content="#3b241b">
 
-<link rel="icon" href="images/icon-192.png">
+<link rel="icon" href="images/icon-small.png">
 
 </head>
 
@@ -634,22 +634,37 @@ Coin Flip
 </h3>
 
 
-<button onclick="coinFlip()">
+<div class="coinButtons">
+
+
+<button onclick="coinFlip(1)">
 
 Toss a Coin
 
 </button>
 
 
+<button onclick="coinFlip(2)">
+
+Toss a Lucky Coin
+
+</button>
+
+
+</div>
+
+<div class="coinArea">
+
+
 <img 
-id="coinResult"
+id="coinResult1"
+src="images/coin.gif">
+
+
+<img 
+id="coinResult2"
 src="images/coin.gif"
-width="100">
-
-
-
-
-
+class="hiddenCoin">
 
 
 </div>
