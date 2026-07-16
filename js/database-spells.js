@@ -16,7 +16,7 @@ hitBonus:+5,
 
 formula:function(mAttack){
 
-return 25+(mAttack*2);
+return 10+(mAttack*2);
 
 }
 
