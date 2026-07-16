@@ -21,7 +21,6 @@
 
 <body>
 
-
 <div class="container">
 
 
@@ -33,22 +32,14 @@
      GLOBAL EFFECTS
 ========================= -->
 
+<h3>Debuffs</h3>
 
-<h3>Status Effects</h3>
-
-<div id="statusContainer" class="iconContainer">
-
-</div>
-
+<div id="statusContainer" class="iconContainer"></div>
 
 
 <h3>Buffs</h3>
 
-<div id="buffContainer" class="iconContainer">
-
-</div>
-
-
+<div id="buffContainer" class="iconContainer"></div>
 
 
 
@@ -56,9 +47,7 @@
         TABS
 ========================= -->
 
-
 <div class="tabs">
-
 
 <button 
 class="tabButton active"
@@ -67,7 +56,6 @@ onclick="showTab('weapon',this)">
 Weapon
 
 </button>
-
 
 
 <button 
@@ -79,8 +67,15 @@ Spell
 </button>
 
 
-</div>
+<button 
+class="tabButton"
+onclick="showTab('firearm',this)">
 
+Firearm
+
+</button>
+
+</div>
 
 
 
@@ -89,39 +84,36 @@ Spell
         WEAPON
 ========================= -->
 
-
 <div id="weapon" class="tabContent">
 
 
 <h2>Weapon Calculator</h2>
 
 
-
 <div class="itemDisplay">
 
-    <img id="weaponImage"
-    class="itemPreview"
-    src="images/placeholder.png">
+<img id="weaponImage"
+class="itemPreview"
+src="images/placeholder.png">
 
 
-    <div class="itemRight">
+<div class="itemRight">
 
-        <select id="weaponSelect"></select>
+<select id="weaponSelect"></select>
 
 
-        <div class="weaponText">
+<div class="weaponText">
 
-            <strong id="weaponName"></strong>
+<strong id="weaponName"></strong>
 
-            <p id="weaponInfo"></p>
-
-        </div>
-
-    </div>
+<p id="weaponInfo"></p>
 
 </div>
 
 
+</div>
+
+</div>
 
 
 
@@ -134,73 +126,54 @@ placeholder="0">
 
 
 
-
-
-
 <h3>Modifier</h3>
-
 
 
 <label>Skill</label>
 
-<select id="weaponSkill">
-
-</select>
-
+<select id="weaponSkill"></select>
 
 
 
 <div class="doubleInput">
 
-    <div>
 
-        <label>
-        Rev
-        </label>
+<div>
 
-        <select id="weaponRev">
+<label>Rev</label>
 
-            <option value="1">
-            None
-            </option>
+<select id="weaponRev">
 
-            <option value="1.2">
-            Rev 1
-            </option>
+<option value="1">None</option>
 
-            <option value="1.4">
-            Rev 2
-            </option>
+<option value="1.2">Rev 1</option>
 
-        </select>
+<option value="1.4">Rev 2</option>
 
-    </div>
+<option value="1.4">Rev 3</option>
 
-
-
-    <div>
-
-        <label>
-        Crit
-        </label>
-
-        <select id="weaponCrit">
-
-            <option value="1">
-            None
-            </option>
-
-            <option value="1.7">
-            Critical
-            </option>
-
-        </select>
-
-    </div>
+</select>
 
 </div>
 
 
+
+<div>
+
+<label>Crit</label>
+
+<select id="weaponCrit">
+
+<option value="1">None</option>
+
+<option value="1.7">Critical</option>
+
+</select>
+
+</div>
+
+
+</div>
 
 
 
@@ -213,29 +186,17 @@ placeholder="0">
 
 <div>
 
-<label>
-Resistance
-</label>
-
+<label>Resistance</label>
 
 <select id="weaponResistance">
 
-<option value="0">
-0%
-</option>
+<option value="0">0%</option>
 
-<option value="10">
-10%
-</option>
+<option value="10">10%</option>
 
-<option value="15">
-15%
-</option>
+<option value="15">15%</option>
 
-<option value="20">
-20%
-</option>
-
+<option value="20">20%</option>
 
 </select>
 
@@ -245,29 +206,17 @@ Resistance
 
 <div>
 
-<label>
-Weakness
-</label>
-
+<label>Weakness</label>
 
 <select id="weaponWeakness">
 
-<option value="0">
-0%
-</option>
+<option value="0">0%</option>
 
-<option value="10">
-10%
-</option>
+<option value="10">10%</option>
 
-<option value="15">
-15%
-</option>
+<option value="15">15%</option>
 
-<option value="20">
-20%
-</option>
-
+<option value="20">20%</option>
 
 </select>
 
@@ -275,7 +224,6 @@ Weakness
 
 
 </div>
-
 
 
 
@@ -288,28 +236,204 @@ Calculate
 
 
 
-
 <div class="result">
 
 Final Damage
 
 <span id="weaponResult">
+
 0
+
 </span>
 
+</div>
+
 
 </div>
 
 
 
+
+
+
+
+<!-- =========================
+        FIREARM
+========================= -->
+
+
+<div id="firearm" class="tabContent hidden">
+
+
+<h2>Firearm Calculator</h2>
+
+
+
+<div class="itemDisplay">
+
+
+<img id="firearmImage"
+class="itemPreview"
+src="images/placeholder.png">
+
+
+<div class="itemRight">
+
+
+<select id="firearmSelect"></select>
+
+
+
+<div class="weaponText">
+
+
+<strong id="firearmName"></strong>
+
+
+<p id="firearmInfo"></p>
+
+
+</div>
+
+
+</div>
+
+
 </div>
 
 
 
 
+<h3>Modifier</h3>
+
+
+<label>Skill</label>
+
+<select id="firearmSkill"></select>
 
 
 
+
+<div class="doubleInput">
+
+
+<div>
+
+<label>Rev</label>
+
+<select id="firearmRev">
+
+<option value="1">None</option>
+
+<option value="1.2">Rev 1</option>
+
+<option value="1.4">Rev 2</option>
+
+<option value="1.4">Rev 3</option>
+
+</select>
+
+
+</div>
+
+
+
+<div>
+
+<label>Crit</label>
+
+<select id="firearmCrit">
+
+<option value="1">None</option>
+
+<option value="1.7">Critical</option>
+
+</select>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<h3>Target</h3>
+
+
+
+<div class="doubleInput">
+
+
+<div>
+
+<label>Resistance</label>
+
+<select id="firearmResistance">
+
+<option value="0">0%</option>
+
+<option value="10">10%</option>
+
+<option value="15">15%</option>
+
+<option value="20">20%</option>
+
+</select>
+
+
+</div>
+
+
+
+<div>
+
+<label>Weakness</label>
+
+<select id="firearmWeakness">
+
+<option value="0">0%</option>
+
+<option value="10">10%</option>
+
+<option value="15">15%</option>
+
+<option value="20">20%</option>
+
+</select>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<button onclick="calculateFirearm()">
+
+Calculate
+
+</button>
+
+
+
+<div class="result">
+
+Final Damage
+
+<span id="firearmResult">
+
+0
+
+</span>
+
+</div>
+
+
+</div>
 
 <!-- =========================
         SPELL
@@ -319,33 +443,40 @@ Final Damage
 <div id="spell" class="tabContent hidden">
 
 
-<h2>
-Spell Calculator
-</h2>
+<h2>Spell Calculator</h2>
 
 
 <div class="itemDisplay">
 
-    <img 
-    id="spellImage"
-    class="itemPreview"
-    src="images/placeholder.png">
+
+<img 
+id="spellImage"
+class="itemPreview"
+src="images/placeholder.png">
 
 
-    <div class="itemRight">
 
-        <select id="spellSelect"></select>
+<div class="itemRight">
 
 
-        <div class="weaponText">
+<select id="spellSelect"></select>
 
-            <strong id="spellName"></strong>
 
-            <p id="spellInfo"></p>
 
-        </div>
+<div class="weaponText">
 
-    </div>
+
+<strong id="spellName"></strong>
+
+
+<p id="spellInfo"></p>
+
+
+</div>
+
+
+</div>
+
 
 </div>
 
@@ -353,9 +484,7 @@ Spell Calculator
 
 
 
-<label>
-Base Magic Attack
-</label>
+<label>Base Magic Attack</label>
 
 
 <input 
@@ -367,120 +496,78 @@ placeholder="0">
 
 
 
+<h3>Accessories</h3>
 
 
-<h3>
-Accessories
-</h3>
+<label>Accessory 1</label>
 
-
-
-<label>
-Accessory 1
-</label>
-
-
-<select id="spellAccessory1">
-
-</select>
+<select id="spellAccessory1"></select>
 
 
 
+<label>Accessory 2</label>
 
-<label>
-Accessory 2
-</label>
-
-
-<select id="spellAccessory2">
-
-</select>
+<select id="spellAccessory2"></select>
 
 
 
+<label>Accessory 3</label>
 
-<label>
-Accessory 3
-</label>
-
-
-<select id="spellAccessory3">
-
-</select>
+<select id="spellAccessory3"></select>
 
 
 
 
 
+<h3>Modifier</h3>
 
 
-<h3>
-Modifier
-</h3>
+<label>Skill</label>
 
-
-
-<label>
-Skill
-</label>
-
-
-<select id="spellSkill">
-
-</select>
-
-
+<select id="spellSkill"></select>
 
 
 
 
 <div class="doubleInput">
 
-    <div>
 
-        <label>
-        Rev
-        </label>
+<div>
 
-        <select id="spellRev">
+<label>Rev</label>
 
-            <option value="1">
-            None
-            </option>
+<select id="spellRev">
 
-            <option value="1.2">
-            Rev 1
-            </option>
+<option value="1">None</option>
 
-            <option value="1.4">
-            Rev 2
-            </option>
+<option value="1.2">Rev 1</option>
 
-        </select>
+<option value="1.4">Rev 2</option>
 
-    </div>
+<option value="1.4">Rev 3</option>
+
+</select>
+
+
+</div>
 
 
 
-    <div>
+<div>
 
-        <label>
-        Crit
-        </label>
+<label>Crit</label>
 
-        <select id="spellCrit">
+<select id="spellCrit">
 
-            <option value="1">
-            None
-            </option>
+<option value="1">None</option>
 
-            <option value="1.7">
-            Critical
-            </option>
+<option value="1.7">Critical</option>
 
-        </select>
+</select>
 
-    </div>
+
+</div>
+
 
 </div>
 
@@ -488,89 +575,47 @@ Skill
 
 
 
-
-
-
-<h3>
-Target
-</h3>
+<h3>Target</h3>
 
 
 
 <div class="doubleInput">
 
 
-
 <div>
 
-
-<label>
-Resistance
-</label>
-
+<label>Resistance</label>
 
 <select id="spellResistance">
 
+<option value="0">0%</option>
 
-<option value="0">
-0%
-</option>
+<option value="10">10%</option>
 
+<option value="15">15%</option>
 
-<option value="10">
-10%
-</option>
-
-
-<option value="15">
-15%
-</option>
-
-
-<option value="20">
-20%
-</option>
-
+<option value="20">20%</option>
 
 </select>
 
 
 </div>
-
-
 
 
 
 <div>
 
-
-<label>
-Weakness
-</label>
-
+<label>Weakness</label>
 
 <select id="spellWeakness">
 
+<option value="0">0%</option>
 
-<option value="0">
-0%
-</option>
+<option value="10">10%</option>
 
+<option value="15">15%</option>
 
-<option value="10">
-10%
-</option>
-
-
-<option value="15">
-15%
-</option>
-
-
-<option value="20">
-20%
-</option>
-
+<option value="20">20%</option>
 
 </select>
 
@@ -578,10 +623,7 @@ Weakness
 </div>
 
 
-
 </div>
-
-
 
 
 
@@ -592,8 +634,6 @@ Weakness
 Calculate
 
 </button>
-
-
 
 
 
@@ -613,10 +653,7 @@ Final Damage
 </div>
 
 
-
 </div>
-
-
 
 
 
@@ -629,9 +666,7 @@ Final Damage
 ========================= -->
 
 
-<h3>
-Coin Flip
-</h3>
+<h3>Coin Flip</h3>
 
 
 <div class="coinButtons">
@@ -652,6 +687,8 @@ Toss a Lucky Coin
 
 
 </div>
+
+
 
 <div class="coinArea">
 
@@ -675,14 +712,14 @@ class="hiddenCoin">
 
 
 
-
-
 <!-- =========================
         DATABASES
 ========================= -->
 
 
 <script src="js/database-weapons.js"></script>
+
+<script src="js/database-firearms.js"></script>
 
 <script src="js/database-spells.js"></script>
 
@@ -693,7 +730,6 @@ class="hiddenCoin">
 <script src="js/database-status.js"></script>
 
 <script src="js/database-buffs.js"></script>
-
 
 
 <script src="js/script.js"></script>
@@ -711,15 +747,11 @@ class="hiddenCoin">
 
 <script>
 
-
 if ("serviceWorker" in navigator) {
-
 
 window.addEventListener("load", async ()=>{
 
-
 try{
-
 
 const registration =
 await navigator.serviceWorker.register(
@@ -727,15 +759,12 @@ await navigator.serviceWorker.register(
 );
 
 
-
 registration.addEventListener(
 "updatefound",
 ()=>{
 
-
 const worker =
 registration.installing;
-
 
 
 worker.addEventListener(
@@ -761,6 +790,7 @@ window.location.reload();
 
 
 }
+
 catch(err){
 
 console.error(
@@ -768,23 +798,18 @@ console.error(
 err
 );
 
-
 }
-
 
 
 });
 
-
 }
-
-
 
 </script>
 
 
 
-
+</div>
 
 </body>
 
