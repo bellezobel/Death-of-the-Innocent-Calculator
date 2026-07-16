@@ -95,3 +95,27 @@ const spellSkills = {
 
 
 };
+
+/* =========================
+        FIREARM SKILLS
+========================= */
+
+const firearmSkills={
+    
+"None":{
+multiplier:1
+},
+
+"Marksmanship":{
+multiplier:1.1
+},
+
+"Gunslinger":{
+multiplier:1.1
+},
+
+"Executioner":{
+multiplier:1.1
+}
+
+};

@@ -8,90 +8,60 @@
         VARIABLES
 ====================================== */
 
-
 let activeStatuses = [];
 
 let activeBuffs = [];
-
-
-
 
 
 /* ======================================
         TAB SYSTEM
 ====================================== */
 
-
 function showTab(tabName, button){
-
 
     const tabs =
         document.getElementsByClassName("tabContent");
 
-
     for(let tab of tabs){
-
         tab.classList.add("hidden");
-
     }
 
-
-
     document
-        .getElementById(tabName)
-        .classList.remove("hidden");
-
+    .getElementById(tabName)
+    .classList.remove("hidden");
 
 
     const buttons =
         document.getElementsByClassName("tabButton");
 
-
     for(let btn of buttons){
-
         btn.classList.remove("active");
-
     }
-
-
 
     button.classList.add("active");
 
 }
 
 
-
-
-
-
-
 /* ======================================
         DROPDOWNS
 ====================================== */
 
-
 function populateDropdown(id, database){
-
 
     const select =
         document.getElementById(id);
 
-
-
     for(let item in database){
-
 
         const option =
             document.createElement("option");
-
 
         option.value = item;
 
         option.textContent = item;
 
-
         select.appendChild(option);
-
 
     }
 
@@ -99,11 +69,7 @@ function populateDropdown(id, database){
 
 
 
-
-
 function loadDropdowns(){
-
-
 
     populateDropdown(
         "weaponSelect",
@@ -111,12 +77,16 @@ function loadDropdowns(){
     );
 
 
-
     populateDropdown(
         "spellSelect",
         spells
     );
 
+
+    populateDropdown(
+        "firearmSelect",
+        firearms
+    );
 
 
     populateDropdown(
@@ -137,12 +107,10 @@ function loadDropdowns(){
     );
 
 
-
     populateDropdown(
         "weaponSkill",
         weaponSkills
     );
-
 
 
     populateDropdown(
@@ -151,28 +119,22 @@ function loadDropdowns(){
     );
 
 
+    populateDropdown(
+        "firearmSkill",
+        firearmSkills
+    );
+
 }
-
-
-
-
-
-
-
 
 
 /* ======================================
         ITEM PREVIEW
 ====================================== */
 
-
 function updateItemPreview(type){
 
 
-
     if(type === "weapon"){
-
-
 
         const weapon =
 
@@ -183,45 +145,30 @@ function updateItemPreview(type){
         ];
 
 
-
         document
         .getElementById("weaponImage")
         .src = weapon.image;
-
-
-
-        document
-        .getElementById("weaponSelect")
-        .value;
-
 
 
         document
         .getElementById("weaponInfo")
         .textContent =
 
-		weapon.damageType
-		+
-		" | Hit Bonus: +"
-		+
-		weapon.hitBonus
-		+
-		" | Effect: "
-		+
-		weapon.effect
-
+        weapon.damageType
+        +
+        " | Hit Bonus: +"
+        +
+        weapon.hitBonus
+        +
+        " | Effect: "
+        +
+        weapon.effect;
 
     }
 
 
 
-
-
-
-
     if(type === "spell"){
-
-
 
         const spell =
 
@@ -237,49 +184,66 @@ function updateItemPreview(type){
         .src = spell.image;
 
 
-
-        document
-        .getElementById("spellSelect")
-        .value;
-
-
-
         document
         .getElementById("spellInfo")
         .textContent =
 
-		spell.target
-		+
-		" | "
-		+
-		spell.damageType
-		+
-		" | Hit Bonus: +"
-		+
-		spell.hitBonus
-		+
-		" | Effect: "
-		+
-		spell.effect
-
+        spell.target
+        +
+        " | "
+        +
+        spell.damageType
+        +
+        " | Hit Bonus: +"
+        +
+        spell.hitBonus
+        +
+        " | Effect: "
+        +
+        spell.effect;
 
     }
 
 
+
+    if(type === "firearm"){
+
+        const firearm =
+
+        firearms[
+            document
+            .getElementById("firearmSelect")
+            .value
+        ];
+
+
+        document
+        .getElementById("firearmImage")
+        .src = firearm.image;
+
+
+        document
+        .getElementById("firearmInfo")
+        .textContent =
+
+        firearm.damageType
+        +
+        " | Hit Bonus: +"
+        +
+        firearm.hitBonus
+        +
+        " | Ammo: "
+        +
+        firearm.munitionType;
+
+    }
+
 }
-
-
-
-
-
-
-
 
 
 /* ======================================
         ICON SYSTEM
 ====================================== */
-
 
 function createIcons(
     database,
@@ -288,33 +252,26 @@ function createIcons(
     array
 ){
 
-
     const container =
         document.getElementById(containerID);
 
 
-
     for(let name in database){
-
 
         const img =
             document.createElement("img");
-
 
 
         img.src =
             database[name].image;
 
 
-
         img.title =
             name;
 
 
-
         img.alt =
             name;
-
 
 
         img.className =
@@ -322,103 +279,67 @@ function createIcons(
 
 
 
-
-
         img.onclick=function(){
-
-
 
             img.classList.toggle("active");
 
 
-
             if(array.includes(name)){
-
 
                 array.splice(
                     array.indexOf(name),
                     1
                 );
 
-
             }
-            else{
 
+            else{
 
                 array.push(name);
 
-
             }
-
 
         };
 
 
-
         container.appendChild(img);
-
-
 
     }
 
-
 }
-
-
-
-
-
-
-
 
 
 /* ======================================
         DAMAGE
 ====================================== */
 
-
 function applyStatusAndBuffs(
     damage,
     type
 ){
 
-
     let modifier = 1;
-
 
 
     activeStatuses.forEach(status=>{
 
-
         modifier *=
         statusEffects[status][type];
 
-
     });
-
-
 
 
     activeBuffs.forEach(buff=>{
 
-
         modifier *=
         buffs[buff][type];
-
 
     });
 
 
-
     return damage * modifier;
 
-
 }
-
-
-
-
-
 
 
 
@@ -431,23 +352,17 @@ function applyModifiers(
     type
 ){
 
-
     damage *= rev;
 
-
     damage *= crit;
-
 
 
     damage *=
     (100 - resistance) / 100;
 
 
-
     damage *=
     (100 + weakness) / 100;
-
-
 
 
     damage =
@@ -457,28 +372,15 @@ function applyModifiers(
     );
 
 
-
     return Math.round(damage);
 
-
 }
-
-
-
-
-
-
-
-
 
 /* ======================================
         WEAPON CALCULATION
 ====================================== */
 
-
 function calculateWeapon(){
-
-
 
     const baseAttack =
 
@@ -487,8 +389,6 @@ function calculateWeapon(){
         .getElementById("weaponBaseAttack")
         .value
     );
-
-
 
 
     const weapon =
@@ -500,27 +400,23 @@ function calculateWeapon(){
     ];
 
 
-
-
     let damage =
 
     (baseAttack + weapon.attack) * 2;
 
 
 
-
-
     damage *=
 
     weaponSkills[
+
         document
         .getElementById("weaponSkill")
         .value
+
     ]
+
     .multiplier;
-
-
-
 
 
 
@@ -543,31 +439,18 @@ function calculateWeapon(){
     );
 
 
-
-
     document
     .getElementById("weaponResult")
     .textContent = damage;
 
-
 }
-
-
-
-
-
-
-
 
 
 /* ======================================
         SPELL CALCULATION
 ====================================== */
 
-
 function calculateSpell(){
-
-
 
     const baseMagic =
 
@@ -578,24 +461,15 @@ function calculateSpell(){
     );
 
 
-
-
     let magicBonus = 0;
 
 
-
-
     [
-
         "spellAccessory1",
-
         "spellAccessory2",
-
         "spellAccessory3"
 
-
     ].forEach(id=>{
-
 
         magicBonus +=
 
@@ -609,11 +483,7 @@ function calculateSpell(){
 
         .magic;
 
-
     });
-
-
-
 
 
 
@@ -635,9 +505,6 @@ function calculateSpell(){
 
 
 
-
-
-
     damage *=
 
     spellSkills[
@@ -649,10 +516,6 @@ function calculateSpell(){
     ]
 
     .multiplier;
-
-
-
-
 
 
 
@@ -676,30 +539,79 @@ function calculateSpell(){
 
 
 
-
-
     document
     .getElementById("spellResult")
     .textContent = damage;
 
-
 }
 
 
+/* ======================================
+        FIREARM CALCULATION
+====================================== */
+
+function calculateFirearm(){
+
+    const firearm =
+
+    firearms[
+
+        document
+        .getElementById("firearmSelect")
+        .value
+
+    ];
+
+
+    let damage = firearm.damage;
 
 
 
+    damage *=
+
+    firearmSkills[
+
+        document
+        .getElementById("firearmSkill")
+        .value
+
+    ]
+
+    .multiplier;
 
 
+
+    damage =
+
+    applyModifiers(
+
+        damage,
+
+        Number(document.getElementById("firearmRev").value),
+
+        Number(document.getElementById("firearmCrit").value),
+
+        Number(document.getElementById("firearmResistance").value),
+
+        Number(document.getElementById("firearmWeakness").value),
+
+        "range"
+
+    );
+
+
+    document
+    .getElementById("firearmResult")
+    .textContent = damage;
+
+}
 
 
 /* ======================================
         COIN FLIP
 ====================================== */
 
-
 function coinFlip(amount){
-
 
     let coins = [];
 
@@ -721,18 +633,19 @@ function coinFlip(amount){
         coins.push(secondCoin);
 
     }
+
     else{
 
         secondCoin.classList.add("hiddenCoin");
 
-        secondCoin.src = "images/coin.gif";
+        secondCoin.src =
+        "images/coin.gif";
 
     }
 
 
 
     coins.forEach((coin)=>{
-
 
         const heads =
             Math.random() < 0.5;
@@ -741,25 +654,21 @@ function coinFlip(amount){
 
         if(heads){
 
-
             coin.src =
             "images/coinfliphead.gif";
 
 
             setTimeout(()=>{
 
-
                 coin.src =
                 "images/coinhead.gif";
 
-
             },2900);
-
 
         }
 
-        else{
 
+        else{
 
             coin.src =
             "images/coinfliptail.gif";
@@ -767,41 +676,25 @@ function coinFlip(amount){
 
             setTimeout(()=>{
 
-
                 coin.src =
                 "images/cointail.gif";
 
-
             },2900);
-
 
         }
 
-
     });
 
-
 }
-
-
-
-
-
-
-
 
 
 /* ======================================
         START
 ====================================== */
 
-
 window.onload=function(){
 
-
-
     loadDropdowns();
-
 
 
     createIcons(
@@ -812,14 +705,12 @@ window.onload=function(){
     );
 
 
-
     createIcons(
         buffs,
         "buffContainer",
         "buffIcon",
         activeBuffs
     );
-
 
 
     document
@@ -830,7 +721,6 @@ window.onload=function(){
     );
 
 
-
     document
     .getElementById("spellSelect")
     .addEventListener(
@@ -839,10 +729,18 @@ window.onload=function(){
     );
 
 
+    document
+    .getElementById("firearmSelect")
+    .addEventListener(
+        "change",
+        ()=>updateItemPreview("firearm")
+    );
+
 
     updateItemPreview("weapon");
 
     updateItemPreview("spell");
 
+    updateItemPreview("firearm");
 
 };
