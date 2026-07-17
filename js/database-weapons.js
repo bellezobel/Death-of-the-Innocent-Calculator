@@ -1,5 +1,15 @@
 const weapons = {
+  
+"None":{
 
+image:"images/placeholder.png",
+Type:"One-handed",
+attack:0,
+damageType:"Blunt",
+effect:"",
+hitBonus:+3
+
+},
 
 "Rusty Pipe":{
 
