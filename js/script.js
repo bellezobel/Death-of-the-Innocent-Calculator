@@ -1,5 +1,5 @@
 /* ======================================
-   Death of the Innocent Companion
+   Death of Innocence Companion
    script.js
 ====================================== */
 
@@ -11,6 +11,10 @@
 let activeStatuses = [];
 
 let activeBuffs = [];
+
+let characterSkills = [];
+
+let characterData = {};
 
 
 /* ======================================
@@ -26,10 +30,10 @@ function showTab(tabName, button){
         tab.classList.add("hidden");
     }
 
-    document
-    .getElementById(tabName)
-    .classList.remove("hidden");
+    const selectedTab =
+        document.getElementById(tabName);
 
+    selectedTab.classList.remove("hidden");
 
     const buttons =
         document.getElementsByClassName("tabButton");
@@ -51,6 +55,10 @@ function populateDropdown(id, database){
 
     const select =
         document.getElementById(id);
+
+    if(!select){
+        return;
+    }
 
     for(let item in database){
 
@@ -123,6 +131,87 @@ function loadDropdowns(){
         "firearmSkill",
         firearmSkills
     );
+	
+	
+	populateDropdown(
+    "charSkill1",
+    charSkills
+);
+
+
+populateDropdown(
+    "charSkill2",
+    charSkills
+);
+
+
+populateDropdown(
+    "charSkill3",
+    charSkills
+);
+
+
+populateDropdown(
+    "charSkill4",
+    charSkills
+);
+
+
+populateDropdown(
+    "charSkill5",
+    charSkills
+);
+
+
+populateDropdown(
+    "charSkill6",
+    charSkills
+);
+
+populateDropdown(
+    "charPhobia",
+    phobias
+);
+
+
+populateDropdown(
+    "charSoul",
+    souls
+);
+
+populateDropdown(
+    "charHead",
+    armorHead
+);
+
+
+populateDropdown(
+    "charArmor",
+    armorBody
+);
+
+populateDropdown(
+    "charWeapon",
+    weapons
+);
+
+
+populateDropdown(
+    "charAccessory1",
+    accessories
+);
+
+
+populateDropdown(
+    "charAccessory2",
+    accessories
+);
+
+
+populateDropdown(
+    "charAccessory3",
+    accessories
+);
 
 }
 
@@ -153,14 +242,18 @@ function updateItemPreview(type){
         document
         .getElementById("weaponInfo")
         .textContent =
-
+		
+		weapon.Type
+		+
+		" | "
+		+
         weapon.damageType
         +
-        " | Hit Bonus: +"
+        " | +"
         +
         weapon.hitBonus
         +
-        " | Effect: "
+        " | "
         +
         weapon.effect;
 
@@ -194,11 +287,11 @@ function updateItemPreview(type){
         +
         spell.damageType
         +
-        " | Hit Bonus: +"
+        " | +"
         +
         spell.hitBonus
         +
-        " | Effect: "
+        " | "
         +
         spell.effect;
 
@@ -228,11 +321,11 @@ function updateItemPreview(type){
 
         firearm.damageType
         +
-        " | Hit Bonus: +"
+        " | +"
         +
         firearm.hitBonus
         +
-        " | Ammo: "
+        " | "
         +
         firearm.munitionType;
 
@@ -606,6 +699,123 @@ function calculateFirearm(){
 
 }
 
+
+/* ======================================
+        CHARACTER SAVE
+====================================== */
+
+function saveCharacter(){
+
+    const fields = [
+
+        "charName",
+        "charPhobia",
+        "charSoul",
+
+        "charBody",
+        "charMind",
+        "charHunger",
+
+        "determination",
+        "cognition",
+        "vitality",
+        "awareness",
+
+        "enlightenment",
+        "rhetoric",
+        "brawn",
+        "finesse",
+
+        "agility",
+        "attack",
+        "mAttack",
+        "mDefense",
+        "defense",
+
+        "bluntResistance",
+        "slashingResistance",
+        "piercingResistance",
+        "fireResistance",
+        "otherworldlyResistance",
+
+        "charSkill1",
+        "charSkill2",
+        "charSkill3",
+        "charSkill4",
+        "charSkill5",
+        "charSkill6",
+
+        "charHead",
+        "charArmor",
+        "charWeapon",
+
+        "charAccessory1",
+        "charAccessory2",
+        "charAccessory3"
+
+    ];
+
+
+    let character = {};
+
+
+    fields.forEach(id=>{
+
+        character[id] =
+        document.getElementById(id).value;
+
+    });
+
+
+    localStorage.setItem(
+        "characterSave",
+        JSON.stringify(character)
+    );
+
+
+    alert("Character saved!");
+
+}
+
+function loadCharacter(){
+
+    const saved =
+    localStorage.getItem("characterSave");
+
+
+    if(!saved){
+
+        alert("No character found.");
+
+        return;
+
+    }
+
+
+    const character =
+    JSON.parse(saved);
+
+
+
+    for(let id in character){
+
+        const element =
+        document.getElementById(id);
+
+
+        if(element){
+
+            element.value =
+            character[id];
+
+        }
+
+    }
+
+
+    alert("Character loaded!");
+
+}
 
 /* ======================================
         COIN FLIP

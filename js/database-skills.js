@@ -29,7 +29,7 @@ const weaponSkills = {
 
         description:"Increase physical damage output.",
 
-        multiplier:1.5
+        multiplier:1.05
 
     },
 
@@ -40,7 +40,18 @@ const weaponSkills = {
 
         description:"Greatly increase physical damage output.",
 
-        multiplier:2
+        multiplier:1.25
+
+    },
+	
+	
+	"Adrenalinrush III": {
+
+        image:"images/placeholder.png",
+
+        description:"Greatly increase physical damage output.",
+
+        multiplier:1.50
 
     }
 
@@ -78,7 +89,7 @@ const spellSkills = {
 
         description:"Increase magical damage output.",
 
-        multiplier:1.5
+        multiplier:1.25
 
     },
 
@@ -89,7 +100,18 @@ const spellSkills = {
 
         description:"Greatly increase magical damage output.",
 
-        multiplier:2
+        multiplier:1.5
+
+    },
+	
+	
+    "La Danse Macabre III": {
+
+        image:"images/placeholder.png",
+
+        description:"Greatly increase magical damage output.",
+
+        multiplier:1.75
 
     }
 
